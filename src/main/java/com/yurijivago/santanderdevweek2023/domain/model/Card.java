@@ -13,6 +13,8 @@ public class Card {
     @Column(name="available_limit", scale = 2, precision = 13)
     private BigDecimal limit;
 
+    public Card(){}
+
     public Card(Long id, String number, BigDecimal limit) {
         this.id = id;
         this.number = number;

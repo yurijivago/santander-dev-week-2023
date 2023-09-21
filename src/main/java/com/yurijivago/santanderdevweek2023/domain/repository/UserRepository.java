@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    boolean existisByAccountNumber(String accountNumber);
+    boolean existsByAccountNumber(String accountNumber);
 }

@@ -10,16 +10,19 @@ import java.util.NoSuchElementException;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
     @Override
     public User findById(Long id) {
         return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
-    public User creat(User userToCreate) {
-        if(userRepository.existisByAccountNumber(userToCreate.getAccount().getNumber())){
+    public User create(User userToCreate) {
+        if(userRepository.existsByAccountNumber(userToCreate.getAccount().getNumber())){
             throw new IllegalArgumentException("This Account number already exists.");
         }
         return userRepository.save(userToCreate);
