@@ -75,4 +75,16 @@ public class User {
     public void setNews(List<News> news) {
         this.news = news;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", account=" + account +
+                ", card=" + card +
+                ", features=" + features +
+                ", news=" + news +
+                '}';
+    }
 }
